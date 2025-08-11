@@ -7,11 +7,16 @@ import { useClerk } from '@clerk/clerk-react';
 
 function App() {
   const [count, setCount] = useState(0);
-  const { user, isloaded, isSignedIn } = useClerk();
+  const { user, isLoaded, isSignedIn } = useClerk();
 
-  if (!isloaded) {
-    return <Navigate to={'/uth/sign-in'} />
+  if (!isLoaded) {
+    return <div>Loading...</div>; // Show a loader until Clerk finishes loading
   }
+
+  if (!isSignedIn) {
+    return <Navigate to="/auth/sign-in" replace />;
+  }
+
   return (
     <>
       <Outlet />
