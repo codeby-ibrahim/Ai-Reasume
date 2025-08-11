@@ -10,11 +10,12 @@ const router = createBrowserRouter([
     element: <App />
   },
   {
-    path: 'auth/signin'
+    path: 'auth/sign-in',
+    element: <siginpage />
   }
 ])
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <RouterProvder router={router} />
   </StrictMode>,
 )
