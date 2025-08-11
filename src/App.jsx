@@ -10,7 +10,7 @@ function App() {
   const { user, isloaded, isSignedIn } = useClerk();
 
   if (!isloaded) {
-    return Navigate('/auth/sign-in');
+    return <Navigate to={'/uth/sign-in'} />
   }
   return (
     <>
