@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
 import { Navigate, Outlet } from 'react-router-dom';
 import { useClerk } from '@clerk/clerk-react';
@@ -10,7 +8,9 @@ function App() {
   const { user, isLoaded, isSignedIn } = useClerk();
 
   if (!isLoaded) {
-    return <div>Loading...</div>; // Show a loader until Clerk finishes loading
+    return <div>
+      <h1 className='font-bold text-yellow-400'>Hellosdfdsw</h1>
+    </div>;
   }
 
   if (!isSignedIn) {
