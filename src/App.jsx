@@ -9,7 +9,11 @@ function App() {
 
   if (!isLoaded) {
     return <div>
-      <h1 className='font-bold text-yellow-400'>Hellosdfdsw</h1>
+      <h1 className='font-bold text-yellow-400'>
+
+        Lodding
+
+      </h1>
     </div>;
   }
 
