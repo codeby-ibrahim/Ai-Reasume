@@ -1,16 +1,28 @@
-// src/App.jsx
-import React from 'react';
-import { Navigate, Outlet, useLocation } from 'react-router-dom';
-// import { useClerk } from '@clerk/clerk-react';
+import { useState } from 'react';
+import './App.css';
+import { Navigate, Outlet } from 'react-router-dom';
+import { useClerk } from '@clerk/clerk-react';
 import Header from './components/custam/Header';
 
-export default function App() {
-  // const { isLoaded, isSignedIn } = useClerk();
-  const location = useLocation();
+function App() {
+  const [count, setCount] = useState(0);
+  const { user, isLoaded, isSignedIn } = useClerk();
 
+  // Wait for Clerk to finish loading
+  if (!isLoaded) {
+    return (
+      <div>
+        <h1 className="font-bold text-yellow-400">Loading...</h1>
+      </div>
+    );
+  }
 
+  // Redirect to sign-in page if not signed in
+  if (!isSignedIn) {
+    return <Navigate to="/auth/sign-in" replace />;
+  }
 
-  // Signed-in users see header + any nested route (Outlet)
+  // Show protected content
   return (
     <>
       <Header />
@@ -18,3 +30,5 @@ export default function App() {
     </>
   );
 }
+
+export default App;

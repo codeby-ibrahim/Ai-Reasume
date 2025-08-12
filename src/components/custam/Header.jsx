@@ -1,28 +1,13 @@
-import React from 'react';
+import React from 'react'
 
 const Header = () => {
     return (
-        <header className="backdrop-blur-md bg-white/80 shadow-md sticky top-0 z-50">
-            <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <div className='p-3 px-5 flex justify-between shaddow-md'>
+            <img src="/logo.svg" width={100} height={100} />
 
-                {/* Logo */}
-                <div className="flex items-center space-x-2">
-                    <img
-                        src="/logo.svg"
-                        alt="Logo"
-                        className="w-14 h-auto object-contain"
-                    />
+            <button>Get Start</button>
+        </div>
+    )
+}
 
-
-                </div>
-
-                {/* Button */}
-                <button className="px-4 py-1.5 bg-yellow-300 hover:bg-yellow-400 text-gray-900 font-medium rounded-lg shadow-sm hover:shadow-lg transition-all duration-200">
-                    Get Started
-                </button>
-            </div>
-        </header >
-    );
-};
-
-export default Header;
+export default Header
