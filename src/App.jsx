@@ -1,14 +1,14 @@
 // src/App.jsx
 import React from 'react';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
-import { useClerk } from '@clerk/clerk-react';
+// import { useClerk } from '@clerk/clerk-react';
 import Header from './components/custam/Header';
 
 export default function App() {
   const { isLoaded, isSignedIn } = useClerk();
   const location = useLocation();
 
-  // Wait until Clerk finishes initializing
+
   if (!isLoaded) {
     return (
       <div>
