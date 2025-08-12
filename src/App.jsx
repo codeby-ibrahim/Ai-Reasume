@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import './App.css';
-import { Navigate, Outlet } from 'react-router-dom';
+// src/App.jsx
+import React from 'react';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useClerk } from '@clerk/clerk-react';
 import Header from './components/custam/Header';
 
-function App() {
-  const [count, setCount] = useState(0);
-  const { user, isLoaded, isSignedIn } = useClerk();
+export default function App() {
+  const { isLoaded, isSignedIn } = useClerk();
+  const location = useLocation();
 
-  // Wait for Clerk to finish loading
+  // Wait until Clerk finishes initializing
   if (!isLoaded) {
     return (
       <div>
@@ -17,12 +17,13 @@ function App() {
     );
   }
 
-  // Redirect to sign-in page if not signed in
+  // If not signed in, send user to the sign-in page.
+  // We pass state.from so you could return them after sign-in if you want.
   if (!isSignedIn) {
-    return <Navigate to="/auth/sign-in" replace />;
+    return <Navigate to="/auth/sign-in" state={{ from: location }} replace />;
   }
 
-  // Show protected content
+  // Signed-in users see header + any nested route (Outlet)
   return (
     <>
       <Header />
@@ -30,5 +31,3 @@ function App() {
     </>
   );
 }
-
-export default App;

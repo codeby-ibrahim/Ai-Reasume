@@ -1,9 +1,5 @@
-import React from 'react'
-
-const HomePage = () => {
-    return (
-        <div className='text-yellow-400'>HomePage</div>
-    )
+// src/pages/Home.jsx
+import React from 'react';
+export default function Home() {
+    return <div>Welcome — this is the protected Home page.</div>;
 }
-
-export default HomePage
