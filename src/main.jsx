@@ -4,8 +4,8 @@ import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import SigninPage from './auth/sign-in/index.jsx'
-import Home from './Home/index.jsx'
 import { ClerkProvider } from '@clerk/clerk-react'
+import HomePage from './homepage/index.jsx'
 
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/',
-        element: <Home />
+        element: <HomePage />
       },
 
     ]
